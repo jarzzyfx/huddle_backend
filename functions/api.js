@@ -11,10 +11,10 @@ app.get('/.netlify/functions/api', (req, res) => {
     message: 'hello world',
   });
 });
-app.use('/api/v1/tasks', TaskRouter);
-app.use('/api/v1/user', UserRouter);
-app.use('/api/v1/workroom', WorkroomRouter);
-app.get('/test', (req, res) => {
+app.use('/.netlify/functions/api/v1/tasks', TaskRouter);
+app.use('/.netlify/functions/api/v1/user', UserRouter);
+app.use('/.netlify/functions/api/v1/workroom', WorkroomRouter);
+app.get('/.netlify/functions/test', (req, res) => {
   res.send('hello boy!');
 });
 const handler = ServerlessHttp(app);
