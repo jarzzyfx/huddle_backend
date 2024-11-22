@@ -2,7 +2,7 @@ import User from '../models/userSchema.js';
 import Invitation from '../models/inviteShema.js';
 import Room from '../models/room.js';
 import logger from '../middlewares/logger.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
