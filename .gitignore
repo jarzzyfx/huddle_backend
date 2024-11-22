@@ -12,3 +12,6 @@ build
 # secret files
 .env
 steps.txt
+
+# Local Netlify folder
+.netlify
