@@ -1,25 +1,20 @@
 import express from 'express';
-import ServerlessHttp from 'serverless-http';
+import serverless from 'serverless-http'; // Use lowercase import
 import TaskRouter from '../routes/tasks.js';
 import UserRouter from '../routes/user.js';
 import WorkroomRouter from '../routes/workroom.js';
 
 const app = express();
 
-app.get('/.netlify/functions/api', (req, res) => {
-  return res.json({
-    message: 'hello world',
-  });
+// Base route for testing
+app.get('/', (req, res) => {
+  res.json({ message: 'API is working!' });
 });
-app.use('/.netlify/functions/api/v1/tasks', TaskRouter);
-app.use('/.netlify/functions/api/v1/user', UserRouter);
-app.use('/.netlify/functions/api/v1/workroom', WorkroomRouter);
-app.get('/.netlify/functions/test', (req, res) => {
-  res.send('hello boy!');
-});
-const handler = ServerlessHttp(app);
 
-module.exports.handler = async (event, context) => {
-  const result = await handler(event, context);
-  return result;
-};
+// Route definitions (no '/.netlify/functions' prefix needed)
+app.use('/v1/tasks', TaskRouter);
+app.use('/v1/user', UserRouter);
+app.use('/v1/workroom', WorkroomRouter);
+
+// Export serverless handler
+module.exports.handler = serverless(app);
