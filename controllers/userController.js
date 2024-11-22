@@ -13,37 +13,46 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 export const registerUser = async (req, res) => {
   try {
+    console.log('Incoming request body:', req.body); // Log incoming payload
+
     const { fullname, email, password } = req.body;
 
-    // Hash the password and create the new user
+    // Validate request fields
+    if (!fullname || !email || !password) {
+      throw new Error('Required fields are missing');
+    }
+
+    console.log('Hashing password...');
     const hashedPassword = await bcrypt.hash(password, 10);
+    console.log('Password hashed successfully');
+
+    console.log('Creating new user...');
     const newUser = await User.create({
       fullname,
       email,
       hashed_password: hashedPassword,
       workroom: [],
     });
+    console.log('New user created:', newUser);
 
-    // Find all invitations for this email
+    // Handle invitations
+    console.log('Fetching invitations...');
     const invitations = await Invitation.find({ email });
+    console.log('Invitations found:', invitations);
 
     for (const invite of invitations) {
-      // Add the room to the user's workroom if invited
       const room = await Room.findById(invite.roomId);
 
       if (room) {
-        // Add the room ID to the new user's workroom array
         newUser.workroom.push(room._id);
         await newUser.save();
 
-        // Add the new user to the room's user list if not already there
         if (!room.users.includes(newUser._id)) {
           room.users.push(newUser._id);
           await room.save();
         }
       }
 
-      // Optionally delete the invitation after processing
       await Invitation.findByIdAndDelete(invite._id);
     }
 
@@ -51,6 +60,7 @@ export const registerUser = async (req, res) => {
       .status(201)
       .json({ message: 'User registered successfully', user: newUser });
   } catch (error) {
+    console.error('Error in registerUser:', error.message);
     res.status(500).json({
       message: 'Error registering user',
       error: error.message,
