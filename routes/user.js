@@ -6,7 +6,7 @@ import {
   loginUser,
   resetPassword,
   logoutUser,
-} from '../api/controllers/userController.js';
+} from '../controllers/userController.js';
 
 router.post('/register', registerUser);
 router.post('/login', loginUser);

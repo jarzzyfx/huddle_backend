@@ -4,7 +4,7 @@ import {
   createTask,
   updateTask,
   deleteTask,
-} from '../api/controllers/taskController.js';
+} from '../controllers/taskController.js';
 import { authenticateToken } from '../middlewares/authentication.js';
 
 const router = express.Router();
