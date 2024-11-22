@@ -58,9 +58,9 @@ export const startServer = () => {
       });
 
       // Start the server on the specified port
-      httpServer.listen(port, () => {
-        console.log(`Server is running on http://localhost:${port}`);
-      });
+      // httpServer.listen(port, () => {
+      //   console.log(`Server is running on http://localhost:${port}`);
+      // });
     });
   } catch (error) {
     logger.error(`Error: ${error}`);
