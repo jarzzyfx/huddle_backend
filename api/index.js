@@ -1,9 +1,9 @@
-import { app, corsOptions } from '../lib/constants.js';
-import { startServer } from '../lib/startServer.js';
-import logger from '../middlewares/logger.js';
-import TaskRouter from '../routes/tasks.js';
-import UserRouter from '../routes/user.js';
-import WorkroomRouter from '../routes/workroom.js';
+import { app, corsOptions } from './lib/constants.js';
+import { startServer } from './lib/startServer.js';
+import logger from './middlewares/logger.js';
+import TaskRouter from './routes/tasks.js';
+import UserRouter from './routes/user.js';
+import WorkroomRouter from './routes/workroom.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
