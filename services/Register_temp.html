@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .header {
+        background-color: #956fd6;
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .content {
+        padding: 20px;
+      }
+      .content h2 {
+        color: #956fd6;
+        font-size: 20px;
+        margin: 0 0 15px;
+      }
+      .content p {
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+      .button {
+        display: inline-block;
+        background-color: #956fd6;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        margin: 10px 0;
+      }
+      .footer {
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+        color: #666;
+      }
+      .footer a {
+        color: #956fd6;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Greetings, {{email}} Welcome to Huddle IO</h1>
+      </div>
+      <div class="content">
+        <h2>You’re Invited!</h2>
+        <p>Hello,</p>
+        <p>
+          You have been invited by {{inviterName}} to join a workroom
+          ({{room.name}}, {{room.id}} ) on <strong>Huddle IO</strong> by a
+          fellow user.
+        </p>
+        <p>Click the button below to register and join the workroom:</p>
+        <a href="http://localhost:3000/user_auth" class="button"
+          >Register Now</a
+        >
+        <p>
+          If you already have an account, simply log in and check your
+          invitations to join the workroom.
+        </p>
+      </div>
+      <div class="footer">
+        <p>
+          Need help? <a href="https://huddle.io/support">Contact Support</a>
+        </p>
+        <p>&copy; 2024 Huddle IO. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "name": "huddle_backend",
+  "description": "The backend endpoint that communicates with the frontend by sharing user data and information with the frontend",
+  "version": "1.0.0",
+  "private": "true",
+  "authors": [
+    {
+      "email": "miraclemark147@gmail.com",
+      "name": "Miracle Mark Chukwuemeka"
+    }
+  ],
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "format": "prettier --write ."
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "quoteProps": "consistent",
+    "jsxSingleQuote": false,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "arrowParens": "always",
+    "proseWrap": "preserve",
+    "endOfLine": "lf",
+    "embeddedLanguageFormatting": "auto"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "googleapis": "^144.0.0",
+    "handlebars": "^4.7.8",
+    "jsonwebtoken": "^9.0.2",
+    "loadash": "^1.0.0",
+    "mongoose": "^8.7.2",
+    "nodemailer": "^6.9.16",
+    "socket.io": "^4.8.0",
+    "winston": "^3.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
