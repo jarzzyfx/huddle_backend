@@ -24,5 +24,8 @@ app.use(cors(corsOptions));
 app.use('/api/v1/tasks', TaskRouter);
 app.use('/api/v1/user', UserRouter);
 app.use('/api/v1/workroom', WorkroomRouter);
+app.get('/test', (req, res) => {
+  res.send('hello boy!');
+});
 
 startServer();
